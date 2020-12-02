@@ -28,42 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.salesGrid = new System.Windows.Forms.TableLayoutPanel();
+            this.itemNameText = new System.Windows.Forms.Label();
+            this.priceText = new System.Windows.Forms.Label();
+            this.salesGrid.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel2
+            // salesGrid
             // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(789, 480);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.salesGrid.AutoScroll = true;
+            this.salesGrid.AutoSize = true;
+            this.salesGrid.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.salesGrid.ColumnCount = 2;
+            this.salesGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.salesGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.salesGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.salesGrid.Controls.Add(this.itemNameText, 0, 0);
+            this.salesGrid.Controls.Add(this.priceText, 1, 0);
+            this.salesGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.salesGrid.Location = new System.Drawing.Point(0, 0);
+            this.salesGrid.Name = "salesGrid";
+            this.salesGrid.RowCount = 1;
+            this.salesGrid.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.salesGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.salesGrid.Size = new System.Drawing.Size(788, 479);
+            this.salesGrid.TabIndex = 0;
             // 
-            // pictureBox1
+            // itemNameText
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.itemNameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemNameText.Location = new System.Drawing.Point(3, 0);
+            this.itemNameText.Name = "itemNameText";
+            this.itemNameText.Size = new System.Drawing.Size(671, 62);
+            this.itemNameText.TabIndex = 1;
+            this.itemNameText.Text = "label2";
+            this.itemNameText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.itemNameText.Click += new System.EventHandler(this.product_Click);
+            // 
+            // priceText
+            // 
+            this.priceText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.priceText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.priceText.Location = new System.Drawing.Point(681, 0);
+            this.priceText.Name = "priceText";
+            this.priceText.Size = new System.Drawing.Size(104, 62);
+            this.priceText.TabIndex = 2;
+            this.priceText.Text = "100.000.000$";
+            this.priceText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.priceText.Click += new System.EventHandler(this.product_Click);
             // 
             // MainWindow
             // 
             this.ClientSize = new System.Drawing.Size(788, 479);
-            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.salesGrid);
             this.Name = "MainWindow";
-            this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.salesGrid.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -71,7 +92,8 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TableLayoutPanel salesGrid;
+        private System.Windows.Forms.Label itemNameText;
+        private System.Windows.Forms.Label priceText;
     }
 }
