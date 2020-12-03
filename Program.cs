@@ -18,6 +18,7 @@ namespace WindowsFormsApp2
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
             Application.Run(new MainWindow());
+            //Application.Run(new userMenu());
         }
     }
 }
