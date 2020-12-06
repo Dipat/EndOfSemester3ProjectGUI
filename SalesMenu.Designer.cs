@@ -37,11 +37,13 @@
             this.ProductType = new System.Windows.Forms.Label();
             this.PersonName = new System.Windows.Forms.Label();
             this.productTypeBox = new System.Windows.Forms.ComboBox();
-            this.remainingTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Description = new System.Windows.Forms.Label();
             this.DescriptionText = new System.Windows.Forms.TextBox();
             this.createSaleButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.timeLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // nameText
@@ -118,15 +120,6 @@
             this.productTypeBox.Size = new System.Drawing.Size(121, 21);
             this.productTypeBox.TabIndex = 26;
             // 
-            // remainingTimePicker
-            // 
-            this.remainingTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.remainingTimePicker.Location = new System.Drawing.Point(117, 155);
-            this.remainingTimePicker.Name = "remainingTimePicker";
-            this.remainingTimePicker.Size = new System.Drawing.Size(196, 20);
-            this.remainingTimePicker.TabIndex = 27;
-            this.remainingTimePicker.Value = new System.DateTime(2020, 12, 3, 0, 0, 0, 0);
-            // 
             // Description
             // 
             this.Description.AutoSize = true;
@@ -163,16 +156,37 @@
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = true;
             // 
+            // trackBar1
+            // 
+            this.trackBar1.AutoSize = false;
+            this.trackBar1.LargeChange = 7;
+            this.trackBar1.Location = new System.Drawing.Point(118, 155);
+            this.trackBar1.Maximum = 6;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(120, 29);
+            this.trackBar1.TabIndex = 32;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
+            // timeLabel
+            // 
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.Location = new System.Drawing.Point(244, 155);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(40, 13);
+            this.timeLabel.TabIndex = 33;
+            this.timeLabel.Text = "1 Days";
+            // 
             // SalesMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.timeLabel);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.createSaleButton);
             this.Controls.Add(this.DescriptionText);
             this.Controls.Add(this.Description);
-            this.Controls.Add(this.remainingTimePicker);
             this.Controls.Add(this.productTypeBox);
             this.Controls.Add(this.nameText);
             this.Controls.Add(this.locationText);
@@ -184,6 +198,7 @@
             this.Controls.Add(this.PersonName);
             this.Name = "SalesMenu";
             this.Text = "SalesMenu";
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,11 +214,12 @@
         private System.Windows.Forms.Label ProductType;
         private System.Windows.Forms.Label PersonName;
         private System.Windows.Forms.ComboBox productTypeBox;
-        private System.Windows.Forms.DateTimePicker remainingTimePicker;
         private System.Windows.Forms.Label Description;
         private System.Windows.Forms.TextBox DescriptionText;
         private System.Windows.Forms.Button createSaleButton;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Label timeLabel;
     }
 }

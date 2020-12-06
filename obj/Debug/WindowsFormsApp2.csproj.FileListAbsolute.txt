@@ -31,7 +31,6 @@ C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\System.Web.Raz
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Antlr3.Runtime.pdb
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojAssemblyReference.cache
-C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form1.resources
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.cache
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
@@ -40,3 +39,7 @@ C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsAp
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.MainWindow.resources
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.UserMenu.resources
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.ProductWindow.resources
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.SalesMenu.resources
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.LoginWindow.resources
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.CreateUser.resources

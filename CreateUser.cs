@@ -5,27 +5,18 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp2
 {
-    public partial class Form1 : Form
+    public partial class CreateUser : Form
     {
         LoginController loginController = new LoginController();
-        public Form1()
+        public CreateUser()
         {
             InitializeComponent();
-        }
-
-        private void loginButton_Click(object sender, EventArgs e)
-        {
-            if(loginController.Login(userNameText.Text, passwordText.Text))
-            {
-                successMessage.Visible = true;
-            }
         }
 
         private void registerButton_Click(object sender, EventArgs e)
@@ -33,12 +24,11 @@ namespace WindowsFormsApp2
             int returnCase = loginController.Register(regUserNametext.Text,
                 regPasswordText.Text, regNameText.Text,
                 regEmailText.Text, regAddressText.Text);
-            if(returnCase == 0)
+            if (returnCase == 0)
             {
-                userNameTakenError.Visible = false;
-                registerSuccess.Visible = true;
+                Program.changeWindows(this, new MainWindow());
             }
-            else if(returnCase == 1)
+            else if (returnCase == 1)
             {
                 userNameTakenError.Visible = true;
             }

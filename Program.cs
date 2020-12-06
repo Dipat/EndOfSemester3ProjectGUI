@@ -17,8 +17,36 @@ namespace WindowsFormsApp2
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
-            Application.Run(new MainWindow());
+            new LoginWindow().Show();
+            Application.Run();
             //Application.Run(new userMenu());
+        }
+
+        public static void backButton_Click(object sender, EventArgs e)
+        {
+            Form currentWindow = ((Control)sender).FindForm();
+            changeWindows(currentWindow, new MainWindow());
+        }
+        public static void logOut_Click(object sender, EventArgs e)
+        {
+            Form currentWindow = ((Control)sender).FindForm();
+            changeWindows(currentWindow,  new LoginWindow());
+        }
+        public static void myInfo_Click(object sender, EventArgs e)
+        {
+            Form currentWindow = ((Control)sender).FindForm();
+            changeWindows(currentWindow, new UserMenu());
+        }
+        public static void createListing_Click(object sender, EventArgs e)
+        {
+            Form currentWindow = ((Control)sender).FindForm();
+            changeWindows(currentWindow, new SalesMenu());
+        }
+
+        public static void changeWindows(Form currentWindow, Form window)
+        {
+            window.Show();   
+            currentWindow.Close();
         }
     }
 }

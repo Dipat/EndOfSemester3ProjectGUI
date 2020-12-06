@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp2
 {
-    public partial class userMenu : Form
+    public partial class UserMenu : Form
     {
-        public userMenu()
+        public UserMenu()
         {
             InitializeComponent();
         }

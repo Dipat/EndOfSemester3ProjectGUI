@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp2
 {
-    partial class userMenu
+    partial class UserMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -47,6 +47,7 @@
             this.ownSalesGrid = new System.Windows.Forms.TableLayoutPanel();
             this.priceText = new System.Windows.Forms.Label();
             this.itemNameText = new System.Windows.Forms.Label();
+            this.backButton = new System.Windows.Forms.Button();
             this.ownSalesGrid.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -223,11 +224,22 @@
             this.itemNameText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.itemNameText.Click += new System.EventHandler(this.product_Click);
             // 
-            // userMenu
+            // backButton
+            // 
+            this.backButton.Location = new System.Drawing.Point(667, 417);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(121, 23);
+            this.backButton.TabIndex = 32;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(Program.backButton_Click);
+            // 
+            // UserMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.ownSalesGrid);
             this.Controls.Add(this.nSalesText);
             this.Controls.Add(this.ratingText);
@@ -274,5 +286,6 @@
         private System.Windows.Forms.TableLayoutPanel ownSalesGrid;
         private System.Windows.Forms.Label itemNameText;
         private System.Windows.Forms.Label priceText;
+        private System.Windows.Forms.Button backButton;
     }
 }

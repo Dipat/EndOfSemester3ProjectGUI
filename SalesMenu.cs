@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EndOfSemester3.Controllers;
+using EndOfSemester3.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,11 +17,28 @@ namespace WindowsFormsApp2
         public SalesMenu()
         {
             InitializeComponent();
+            ProductTypesController productTypesController = new ProductTypesController();
+            var types = productTypesController.Get();
+            for (int i = 0; i < types.Count(); i++)
+            {
+                productTypeBox.Items.Add(types.ElementAt(i).type);
+            }
+            
         }
 
         private void createSaleButton_Click(object sender, EventArgs e)
         {
-            var time = remainingTimePicker.Value;
+            ProductsController productsController = new ProductsController();
+            SalesController salesController = new SalesController();
+            int price = int.Parse(startingPriceText.Text);
+            int productID = productsController.Create(nameText.Text, price,
+                locationText.Text, productTypeBox.SelectedIndex + 1);
+            salesController.Create(IsLoggedIn.getInstance().userName, productID, DescriptionText.Text, price, (trackBar1.Value+1)*24);
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            timeLabel.Text = trackBar1.Value + 1 + " Days";
         }
     }
 }

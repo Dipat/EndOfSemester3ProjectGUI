@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EndOfSemester3.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,7 @@ namespace WindowsFormsApp2
             InitializeComponent();
         }
 
-        public void UpdateGrid(string productName, int price)
+        public void UpdateGrid(string productName, int price, int saleID)
         {
             salesGrid.RowCount = salesGrid.RowCount + 1;
             //Picture box declaration
@@ -52,16 +53,60 @@ namespace WindowsFormsApp2
             priceText.TextAlign = ContentAlignment.MiddleRight;
             priceText.Click += new EventHandler(product_Click);
 
+            //ID Invisible Textbox declaration
+            Label idText = new Label();
+            idText.AutoSize = true;
+            idText.Location = new Point(747, 0);
+            idText.Name = "idText";
+            idText.Size = new Size(13, 26);
+            idText.TabIndex = 3;
+            idText.Text = saleID.ToString();
+            idText.Visible = false;
+
             salesGrid.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             //salesGrid.Controls.Add(pictureBox, 0, salesGrid.RowCount-1);
             salesGrid.Controls.Add(itemNameText, 0, salesGrid.RowCount-1);
             salesGrid.Controls.Add(priceText, 1, salesGrid.RowCount-1);
+            salesGrid.Controls.Add(idText, 2, salesGrid.RowCount - 1);
             
         }
 
         private void product_Click(object sender, EventArgs e)
         {
-            UpdateGrid("big good product", 10);
+            ProductWindow window = new ProductWindow();
+            int row = salesGrid.GetRow((Control)sender);
+            int id = int.Parse(GetAnyControlAt(salesGrid, 2, row).Text);
+            window.updateText(id);
+            window.Show();
+            Close();
+        }
+
+        public Control GetAnyControlAt(TableLayoutPanel panel, int column, int row)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                var cellPosition = panel.GetCellPosition(control);
+                if (cellPosition.Column == column && cellPosition.Row == row)
+                    return control;
+            }
+            return null;
+        }
+
+        public void UpdateSales()
+        {
+            SalesController salesController = new SalesController();
+            ProductsController productsController = new ProductsController();
+            var sales = salesController.GetActive();
+            for (int i = 0; i < sales.Count(); i++)
+            {
+                var sale = sales.ElementAt(i);
+                UpdateGrid(productsController.Get(sale.products_id).name, sale.currentPrice, sale.id);
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            UpdateSales();
         }
 
     }
