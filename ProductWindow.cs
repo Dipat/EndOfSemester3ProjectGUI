@@ -14,6 +14,9 @@ namespace WindowsFormsApp2
     public partial class ProductWindow : Form
     {
         private int saleID = 0;
+        SalesController salesController = new SalesController();
+        ProductsController productsController = new ProductsController();
+        ProductTypesController productTypesController = new ProductTypesController();
         public ProductWindow()
         {
             InitializeComponent();
@@ -22,7 +25,7 @@ namespace WindowsFormsApp2
         private void placeBid_Click(object sender, EventArgs e)
         {
             //bid with some kind of concurrency :))
-            SalesController salesController = new SalesController();
+            
             if ((int)bidValue.Value >= int.Parse(cPriceText.Text) / 10 )
             {
                 salesController.Bid(saleID, EndOfSemester3.Models.IsLoggedIn.getInstance().userName, (int)bidValue.Value);
@@ -37,11 +40,18 @@ namespace WindowsFormsApp2
         public void updateText(int id)
         {
             saleID = id;
-            if(id == 1)
-            {
-                nameText.Text = "asd";
-            }
-            
+            var sale = salesController.Get(id);
+            var product = productsController.Get(sale.products_id);
+            nameText.Text = product.name;
+            pTypeText.Text = productTypesController.Get(product.productTypes_id).type;
+            cPriceText.Text = sale.currentPrice + " DKK";
+            descriptionText.Text = sale.description;
+            timeText.Text = sale.timeRemaining.ToString();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //TimeZone.CurrentTimeZone
         }
     }
 }

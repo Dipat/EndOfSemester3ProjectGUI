@@ -142,6 +142,11 @@
             this.descriptionText.TabIndex = 17;
             this.descriptionText.Text = "Description";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // timeText
             // 
             this.timeText.AutoSize = true;
