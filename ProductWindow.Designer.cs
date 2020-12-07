@@ -49,7 +49,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.errorText = new System.Windows.Forms.Label();
+            this.bidValue = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bidValue)).BeginInit();
             this.SuspendLayout();
             // 
             // createListing
@@ -60,7 +62,6 @@
             this.createListing.TabIndex = 11;
             this.createListing.Text = "Create Listing";
             this.createListing.UseVisualStyleBackColor = true;
-            this.createListing.Click += new System.EventHandler(Program.createListing_Click);
             // 
             // textBox1
             // 
@@ -88,7 +89,6 @@
             this.logOut.TabIndex = 8;
             this.logOut.Text = "Log Out";
             this.logOut.UseVisualStyleBackColor = true;
-            this.logOut.Click += new System.EventHandler(Program.logOut_Click);
             // 
             // myInfo
             // 
@@ -98,7 +98,6 @@
             this.myInfo.TabIndex = 7;
             this.myInfo.Text = "My Info";
             this.myInfo.UseVisualStyleBackColor = true;
-            this.myInfo.Click += new System.EventHandler(Program.myInfo_Click);
             // 
             // pictureBox2
             // 
@@ -146,7 +145,7 @@
             // timeText
             // 
             this.timeText.AutoSize = true;
-            this.timeText.Location = new System.Drawing.Point(667, 257);
+            this.timeText.Location = new System.Drawing.Point(667, 244);
             this.timeText.Name = "timeText";
             this.timeText.Size = new System.Drawing.Size(26, 13);
             this.timeText.TabIndex = 18;
@@ -170,7 +169,6 @@
             this.backButton.TabIndex = 20;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(Program.backButton_Click);
             // 
             // label1
             // 
@@ -202,7 +200,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(575, 257);
+            this.label4.Location = new System.Drawing.Point(575, 244);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 13);
             this.label4.TabIndex = 24;
@@ -227,11 +225,24 @@
             this.errorText.Text = "Couldn\'t Place Bid!";
             this.errorText.Visible = false;
             // 
+            // bidValue
+            // 
+            this.bidValue.Location = new System.Drawing.Point(604, 268);
+            this.bidValue.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.bidValue.Name = "bidValue";
+            this.bidValue.Size = new System.Drawing.Size(133, 20);
+            this.bidValue.TabIndex = 28;
+            // 
             // ProductWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bidValue);
             this.Controls.Add(this.errorText);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -254,6 +265,7 @@
             this.Name = "ProductWindow";
             this.Text = "ProductWindow";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bidValue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,5 +293,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label errorText;
+        private System.Windows.Forms.NumericUpDown bidValue;
     }
 }
