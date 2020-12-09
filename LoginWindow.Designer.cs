@@ -33,7 +33,7 @@
             this.passwordText = new System.Windows.Forms.TextBox();
             this.Password = new System.Windows.Forms.Label();
             this.UserName = new System.Windows.Forms.Label();
-            this.successMessage = new System.Windows.Forms.Label();
+            this.errorText = new System.Windows.Forms.Label();
             this.createUserButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -65,6 +65,7 @@
             // Password
             // 
             this.Password.AutoSize = true;
+            this.Password.BackColor = System.Drawing.Color.Transparent;
             this.Password.Location = new System.Drawing.Point(47, 99);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(56, 13);
@@ -74,21 +75,23 @@
             // UserName
             // 
             this.UserName.AutoSize = true;
+            this.UserName.BackColor = System.Drawing.Color.Transparent;
             this.UserName.Location = new System.Drawing.Point(45, 73);
             this.UserName.Name = "UserName";
             this.UserName.Size = new System.Drawing.Size(58, 13);
             this.UserName.TabIndex = 4;
             this.UserName.Text = "Username:";
             // 
-            // successMessage
+            // errorText
             // 
-            this.successMessage.AutoSize = true;
-            this.successMessage.Location = new System.Drawing.Point(155, 162);
-            this.successMessage.Name = "successMessage";
-            this.successMessage.Size = new System.Drawing.Size(58, 13);
-            this.successMessage.TabIndex = 5;
-            this.successMessage.Text = "Logged In!";
-            this.successMessage.Visible = false;
+            this.errorText.BackColor = System.Drawing.Color.Transparent;
+            this.errorText.Location = new System.Drawing.Point(120, 164);
+            this.errorText.Name = "errorText";
+            this.errorText.Size = new System.Drawing.Size(136, 13);
+            this.errorText.TabIndex = 5;
+            this.errorText.Text = "Invalid credentials!";
+            this.errorText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.errorText.Visible = false;
             // 
             // createUserButton
             // 
@@ -104,9 +107,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::WindowsFormsApp2.Properties.Resources.WindowBackground;
             this.ClientSize = new System.Drawing.Size(374, 251);
             this.Controls.Add(this.createUserButton);
-            this.Controls.Add(this.successMessage);
+            this.Controls.Add(this.errorText);
             this.Controls.Add(this.UserName);
             this.Controls.Add(this.Password);
             this.Controls.Add(this.passwordText);
@@ -126,7 +130,7 @@
         private System.Windows.Forms.TextBox passwordText;
         private System.Windows.Forms.Label Password;
         private System.Windows.Forms.Label UserName;
-        private System.Windows.Forms.Label successMessage;
+        private System.Windows.Forms.Label errorText;
         private System.Windows.Forms.Button createUserButton;
     }
 }

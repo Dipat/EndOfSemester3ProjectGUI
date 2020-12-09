@@ -48,12 +48,14 @@
             this.priceText = new System.Windows.Forms.Label();
             this.itemNameText = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
+            this.saveUpdates = new System.Windows.Forms.Button();
             this.ownSalesGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // PersonName
             // 
             this.PersonName.AutoSize = true;
+            this.PersonName.BackColor = System.Drawing.Color.Transparent;
             this.PersonName.Location = new System.Drawing.Point(69, 109);
             this.PersonName.Name = "PersonName";
             this.PersonName.Size = new System.Drawing.Size(38, 13);
@@ -63,6 +65,7 @@
             // Email
             // 
             this.Email.AutoSize = true;
+            this.Email.BackColor = System.Drawing.Color.Transparent;
             this.Email.Location = new System.Drawing.Point(72, 135);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(35, 13);
@@ -72,6 +75,7 @@
             // Address
             // 
             this.Address.AutoSize = true;
+            this.Address.BackColor = System.Drawing.Color.Transparent;
             this.Address.Location = new System.Drawing.Point(64, 161);
             this.Address.Name = "Address";
             this.Address.Size = new System.Drawing.Size(48, 13);
@@ -81,6 +85,7 @@
             // Username
             // 
             this.Username.AutoSize = true;
+            this.Username.BackColor = System.Drawing.Color.Transparent;
             this.Username.Location = new System.Drawing.Point(54, 36);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(58, 13);
@@ -90,6 +95,7 @@
             // Password
             // 
             this.Password.AutoSize = true;
+            this.Password.BackColor = System.Drawing.Color.Transparent;
             this.Password.Location = new System.Drawing.Point(54, 60);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(56, 13);
@@ -99,6 +105,7 @@
             // Password2
             // 
             this.Password2.AutoSize = true;
+            this.Password2.BackColor = System.Drawing.Color.Transparent;
             this.Password2.Location = new System.Drawing.Point(15, 80);
             this.Password2.Name = "Password2";
             this.Password2.Size = new System.Drawing.Size(97, 13);
@@ -108,6 +115,7 @@
             // Rating
             // 
             this.Rating.AutoSize = true;
+            this.Rating.BackColor = System.Drawing.Color.Transparent;
             this.Rating.Location = new System.Drawing.Point(609, 24);
             this.Rating.Name = "Rating";
             this.Rating.Size = new System.Drawing.Size(41, 13);
@@ -117,6 +125,7 @@
             // NumberOfSales
             // 
             this.NumberOfSales.AutoSize = true;
+            this.NumberOfSales.BackColor = System.Drawing.Color.Transparent;
             this.NumberOfSales.Location = new System.Drawing.Point(562, 50);
             this.NumberOfSales.Name = "NumberOfSales";
             this.NumberOfSales.Size = new System.Drawing.Size(88, 13);
@@ -189,6 +198,7 @@
             this.ownSalesGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ownSalesGrid.AutoScroll = true;
             this.ownSalesGrid.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ownSalesGrid.BackColor = System.Drawing.Color.LightGray;
             this.ownSalesGrid.ColumnCount = 2;
             this.ownSalesGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.ownSalesGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -232,13 +242,24 @@
             this.backButton.TabIndex = 32;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(Program.backButton_Click);
+            // 
+            // saveUpdates
+            // 
+            this.saveUpdates.Location = new System.Drawing.Point(106, 184);
+            this.saveUpdates.Name = "saveUpdates";
+            this.saveUpdates.Size = new System.Drawing.Size(121, 23);
+            this.saveUpdates.TabIndex = 33;
+            this.saveUpdates.Text = "Save Updates";
+            this.saveUpdates.UseVisualStyleBackColor = true;
+            this.saveUpdates.Click += new System.EventHandler(this.saveUpdates_Click);
             // 
             // UserMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::WindowsFormsApp2.Properties.Resources.WindowBackground;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.saveUpdates);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.ownSalesGrid);
             this.Controls.Add(this.nSalesText);
@@ -259,6 +280,7 @@
             this.Controls.Add(this.PersonName);
             this.Name = "UserMenu";
             this.Text = "User Menu";
+            this.Load += new System.EventHandler(this.UserMenu_Load);
             this.ownSalesGrid.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -287,5 +309,6 @@
         private System.Windows.Forms.Label itemNameText;
         private System.Windows.Forms.Label priceText;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button saveUpdates;
     }
 }

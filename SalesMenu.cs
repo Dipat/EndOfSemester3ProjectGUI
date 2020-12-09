@@ -21,7 +21,7 @@ namespace WindowsFormsApp2
             var types = productTypesController.Get();
             for (int i = 0; i < types.Count(); i++)
             {
-                productTypeBox.Items.Add(types.ElementAt(i).type);
+                productTypeBox.Items.Add(types.ElementAt(i).Type);
             }
             
         }
@@ -33,7 +33,7 @@ namespace WindowsFormsApp2
             int price = int.Parse(startingPriceText.Text);
             int productID = productsController.Create(nameText.Text, price,
                 locationText.Text, productTypeBox.SelectedIndex + 1);
-            salesController.Create(IsLoggedIn.getInstance().userName, productID, DescriptionText.Text, price, (trackBar1.Value+1)*24);
+            salesController.Create(IsLoggedIn.GetInstance().UserName, productID, DescriptionText.Text, price, (trackBar1.Value+1)*24);
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)

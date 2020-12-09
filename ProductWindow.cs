@@ -28,7 +28,7 @@ namespace WindowsFormsApp2
             
             if ((int)bidValue.Value >= int.Parse(cPriceText.Text) / 10 )
             {
-                salesController.Bid(saleID, EndOfSemester3.Models.IsLoggedIn.getInstance().userName, (int)bidValue.Value);
+                salesController.Bid(saleID, EndOfSemester3.Models.IsLoggedIn.GetInstance().UserName, (int)bidValue.Value);
             }
             else
             {
@@ -41,12 +41,12 @@ namespace WindowsFormsApp2
         {
             saleID = id;
             var sale = salesController.Get(id);
-            var product = productsController.Get(sale.products_id);
-            nameText.Text = product.name;
-            pTypeText.Text = productTypesController.Get(product.productTypes_id).type;
-            cPriceText.Text = sale.currentPrice + " DKK";
-            descriptionText.Text = sale.description;
-            timeText.Text = sale.timeRemaining.ToString();
+            var product = productsController.Get(sale.ProductsId);
+            nameText.Text = product.Name;
+            pTypeText.Text = productTypesController.Get(product.ProductTypesId).Type;
+            cPriceText.Text = sale.CurrentPrice + " DKK";
+            descriptionText.Text = sale.Description;
+            timeText.Text = sale.TimeRemaining.ToString();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

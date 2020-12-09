@@ -152,6 +152,7 @@
             // 
             // MainWindow
             // 
+            this.BackgroundImage = global::WindowsFormsApp2.Properties.Resources.WindowBackground;
             this.ClientSize = new System.Drawing.Size(788, 479);
             this.Controls.Add(this.createListing);
             this.Controls.Add(this.comboBox1);
@@ -169,9 +170,6 @@
         }
 
         #endregion
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel salesGrid;
         private System.Windows.Forms.Label itemNameText;
         private System.Windows.Forms.Label priceText;

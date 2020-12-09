@@ -31,7 +31,7 @@
             this.nameText = new System.Windows.Forms.TextBox();
             this.locationText = new System.Windows.Forms.TextBox();
             this.startingPriceText = new System.Windows.Forms.TextBox();
-            this.Location = new System.Windows.Forms.Label();
+            this.location = new System.Windows.Forms.Label();
             this.StartingPrice = new System.Windows.Forms.Label();
             this.RemainingTime = new System.Windows.Forms.Label();
             this.ProductType = new System.Windows.Forms.Label();
@@ -67,18 +67,20 @@
             this.startingPriceText.Size = new System.Drawing.Size(100, 20);
             this.startingPriceText.TabIndex = 21;
             // 
-            // Location
+            // location
             // 
-            this.Location.AutoSize = true;
-            this.Location.Location = new System.Drawing.Point(60, 100);
-            this.Location.Name = "Location";
-            this.Location.Size = new System.Drawing.Size(51, 13);
-            this.Location.TabIndex = 19;
-            this.Location.Text = "Location:";
+            this.location.AutoSize = true;
+            this.location.BackColor = System.Drawing.Color.Transparent;
+            this.location.Location = new System.Drawing.Point(60, 100);
+            this.location.Name = "location";
+            this.location.Size = new System.Drawing.Size(51, 13);
+            this.location.TabIndex = 19;
+            this.location.Text = "Location:";
             // 
             // StartingPrice
             // 
             this.StartingPrice.AutoSize = true;
+            this.StartingPrice.BackColor = System.Drawing.Color.Transparent;
             this.StartingPrice.Location = new System.Drawing.Point(41, 77);
             this.StartingPrice.Name = "StartingPrice";
             this.StartingPrice.Size = new System.Drawing.Size(70, 13);
@@ -88,6 +90,7 @@
             // RemainingTime
             // 
             this.RemainingTime.AutoSize = true;
+            this.RemainingTime.BackColor = System.Drawing.Color.Transparent;
             this.RemainingTime.Location = new System.Drawing.Point(25, 155);
             this.RemainingTime.Name = "RemainingTime";
             this.RemainingTime.Size = new System.Drawing.Size(86, 13);
@@ -97,6 +100,7 @@
             // ProductType
             // 
             this.ProductType.AutoSize = true;
+            this.ProductType.BackColor = System.Drawing.Color.Transparent;
             this.ProductType.Location = new System.Drawing.Point(40, 129);
             this.ProductType.Name = "ProductType";
             this.ProductType.Size = new System.Drawing.Size(71, 13);
@@ -106,6 +110,7 @@
             // PersonName
             // 
             this.PersonName.AutoSize = true;
+            this.PersonName.BackColor = System.Drawing.Color.Transparent;
             this.PersonName.Location = new System.Drawing.Point(68, 54);
             this.PersonName.Name = "PersonName";
             this.PersonName.Size = new System.Drawing.Size(38, 13);
@@ -123,6 +128,7 @@
             // Description
             // 
             this.Description.AutoSize = true;
+            this.Description.BackColor = System.Drawing.Color.Transparent;
             this.Description.Location = new System.Drawing.Point(48, 193);
             this.Description.Name = "Description";
             this.Description.Size = new System.Drawing.Size(63, 13);
@@ -159,6 +165,7 @@
             // trackBar1
             // 
             this.trackBar1.AutoSize = false;
+            this.trackBar1.BackColor = System.Drawing.SystemColors.Control;
             this.trackBar1.LargeChange = 7;
             this.trackBar1.Location = new System.Drawing.Point(118, 155);
             this.trackBar1.Maximum = 6;
@@ -170,6 +177,7 @@
             // timeLabel
             // 
             this.timeLabel.AutoSize = true;
+            this.timeLabel.BackColor = System.Drawing.Color.Transparent;
             this.timeLabel.Location = new System.Drawing.Point(244, 155);
             this.timeLabel.Name = "timeLabel";
             this.timeLabel.Size = new System.Drawing.Size(40, 13);
@@ -180,6 +188,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::WindowsFormsApp2.Properties.Resources.WindowBackground;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.trackBar1);
@@ -191,7 +200,7 @@
             this.Controls.Add(this.nameText);
             this.Controls.Add(this.locationText);
             this.Controls.Add(this.startingPriceText);
-            this.Controls.Add(this.Location);
+            this.Controls.Add(this.location);
             this.Controls.Add(this.StartingPrice);
             this.Controls.Add(this.RemainingTime);
             this.Controls.Add(this.ProductType);
@@ -208,7 +217,7 @@
         private System.Windows.Forms.TextBox nameText;
         private System.Windows.Forms.TextBox locationText;
         private System.Windows.Forms.TextBox startingPriceText;
-        private System.Windows.Forms.Label Location;
+        private System.Windows.Forms.Label location;
         private System.Windows.Forms.Label StartingPrice;
         private System.Windows.Forms.Label RemainingTime;
         private System.Windows.Forms.Label ProductType;
@@ -218,7 +227,6 @@
         private System.Windows.Forms.TextBox DescriptionText;
         private System.Windows.Forms.Button createSaleButton;
         private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.HelpProvider helpProvider1;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label timeLabel;
     }

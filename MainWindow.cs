@@ -16,6 +16,9 @@ namespace WindowsFormsApp2
         public MainWindow()
         {
             InitializeComponent();
+            this.createListing.Click += new System.EventHandler(Program.createListing_Click);
+            this.logOut.Click += new System.EventHandler(Program.logOut_Click);
+            this.myInfo.Click += new System.EventHandler(Program.myInfo_Click);
         }
 
         public void UpdateGrid(string productName, int price, int saleID)
@@ -100,7 +103,7 @@ namespace WindowsFormsApp2
             for (int i = 0; i < sales.Count(); i++)
             {
                 var sale = sales.ElementAt(i);
-                UpdateGrid(productsController.Get(sale.products_id).name, sale.currentPrice, sale.id);
+                UpdateGrid(productsController.Get(sale.ProductsId).Name, sale.CurrentPrice, sale.Id);
             }
         }
 
@@ -109,5 +112,19 @@ namespace WindowsFormsApp2
             UpdateSales();
         }
 
+        private void createListing_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void myInfo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logOut_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

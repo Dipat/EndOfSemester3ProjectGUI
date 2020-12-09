@@ -7,14 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EndOfSemester3.Controllers;
+using EndOfSemester3.Models;
 
 namespace WindowsFormsApp2
 {
     public partial class UserMenu : Form
     {
+        UsersController usersController = new UsersController();
+        EncryptionController encryptionController = new EncryptionController();
         public UserMenu()
         {
             InitializeComponent();
+            updateFields(IsLoggedIn.GetInstance().UserName);
         }
 
         public void UpdateGrid(string productName, int price)
@@ -62,6 +67,27 @@ namespace WindowsFormsApp2
         private void product_Click(object sender, EventArgs e)
         {
             UpdateGrid("product", 15);
+        }
+
+        private void saveUpdates_Click(object sender, EventArgs e)
+        {
+            usersController.Update(usernameText.Text, passwordText.Text, nameText.Text, emailText.Text, addressText.Text);
+        }
+
+        public void updateFields(string username)
+        {
+            var user = usersController.Get(username);
+            usernameText.Text = username;
+            string decryptedValue = encryptionController.DecryptPassword(user.Password);
+            passwordText.Text = decryptedValue.Substring(0, decryptedValue.Length - user.Salt.Length);
+            nameText.Text = user.Name;
+            emailText.Text = user.Email;
+            addressText.Text = user.Address;
+        }
+
+        private void UserMenu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

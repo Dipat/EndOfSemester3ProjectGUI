@@ -26,6 +26,7 @@ namespace WindowsFormsApp2
             {
                 Program.changeWindows(this, new MainWindow());
             }
+            errorText.Visible = true;
         }
 
         private void createUserButton_Click(object sender, EventArgs e)
