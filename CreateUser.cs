@@ -17,6 +17,7 @@ namespace WindowsFormsApp2
         public CreateUser()
         {
             InitializeComponent();
+            this.backButton.Click += new EventHandler(Program.logOut_Click);
         }
 
         private void registerButton_Click(object sender, EventArgs e)

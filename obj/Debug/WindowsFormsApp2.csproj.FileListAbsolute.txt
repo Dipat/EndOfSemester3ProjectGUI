@@ -43,7 +43,6 @@ C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsAp
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.SalesMenu.resources
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.LoginWindow.resources
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.CreateUser.resources
-C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe.config
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Microsoft.Owin.dll
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
@@ -65,3 +64,16 @@ C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\EntityFramewor
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Twilio.dll
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Microsoft.Owin.Security.Google.dll
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Twilio.xml
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Microsoft.Owin.Security.Google.xml
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Microsoft.IdentityModel.Logging.xml
+C:\Users\Patrik Á Dienes\source\repos\WindowsFormsApp2\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml

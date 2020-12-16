@@ -23,7 +23,7 @@ namespace WindowsFormsApp2
             {
                 productTypeBox.Items.Add(types.ElementAt(i).Type);
             }
-            
+            this.backButton.Click += new EventHandler(Program.backButton_Click);
         }
 
         private void createSaleButton_Click(object sender, EventArgs e)
@@ -31,14 +31,13 @@ namespace WindowsFormsApp2
             ProductsController productsController = new ProductsController();
             SalesController salesController = new SalesController();
             int price = int.Parse(startingPriceText.Text);
+            //int timeRemaining = ((Convert.ToInt32(trackBar1.Value)) + 1) * 24;
+            var endTime = dateTimePicker1.Value;
             int productID = productsController.Create(nameText.Text, price,
-                locationText.Text, productTypeBox.SelectedIndex + 1);
-            salesController.Create(IsLoggedIn.GetInstance().UserName, productID, DescriptionText.Text, price, (trackBar1.Value+1)*24);
-        }
-
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            timeLabel.Text = trackBar1.Value + 1 + " Days";
+            locationText.Text, productTypeBox.SelectedIndex + 1);
+            salesController.Create(IsLoggedIn.GetInstance().UserName, productID, DescriptionText.Text, price, endTime);
+            //Form currentWindow = ((Control)sender).FindForm();
+            Program.changeWindows(this, new MainWindow());
         }
     }
 }

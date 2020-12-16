@@ -13,12 +13,23 @@ namespace WindowsFormsApp2
 {
     public partial class MainWindow : Form
     {
+        SalesController salesController = new SalesController();
+        ProductsController productsController = new ProductsController();
+        ProductTypesController productTypesController = new ProductTypesController();
+        bool sortingActive = false;
         public MainWindow()
         {
             InitializeComponent();
-            this.createListing.Click += new System.EventHandler(Program.createListing_Click);
-            this.logOut.Click += new System.EventHandler(Program.logOut_Click);
-            this.myInfo.Click += new System.EventHandler(Program.myInfo_Click);
+            var types = productTypesController.Get();
+            for (int i = 0; i < types.Count(); i++)
+            {
+                productTypeBox.Items.Add(types.ElementAt(i).Type);
+            }
+            this.createListing.Click += new EventHandler(Program.createListing_Click);
+            this.logOut.Click += new EventHandler(Program.logOut_Click);
+            this.myInfo.Click += new EventHandler(Program.myInfo_Click);
+            ActiveChecker();
+            UpdateSales();
         }
 
         public void UpdateGrid(string productName, int price, int saleID)
@@ -71,7 +82,6 @@ namespace WindowsFormsApp2
             salesGrid.Controls.Add(itemNameText, 0, salesGrid.RowCount-1);
             salesGrid.Controls.Add(priceText, 1, salesGrid.RowCount-1);
             salesGrid.Controls.Add(idText, 2, salesGrid.RowCount - 1);
-            
         }
 
         private void product_Click(object sender, EventArgs e)
@@ -79,7 +89,7 @@ namespace WindowsFormsApp2
             ProductWindow window = new ProductWindow();
             int row = salesGrid.GetRow((Control)sender);
             int id = int.Parse(GetAnyControlAt(salesGrid, 2, row).Text);
-            window.updateText(id);
+            window.UpdateText(id);
             window.Show();
             Close();
         }
@@ -97,34 +107,88 @@ namespace WindowsFormsApp2
 
         public void UpdateSales()
         {
-            SalesController salesController = new SalesController();
-            ProductsController productsController = new ProductsController();
             var sales = salesController.GetActive();
+            salesGrid.Controls.Clear();
             for (int i = 0; i < sales.Count(); i++)
             {
                 var sale = sales.ElementAt(i);
-                UpdateGrid(productsController.Get(sale.ProductsId).Name, sale.CurrentPrice, sale.Id);
+                UpdateGrid(productsController.Get(sale.Products_id).Name, sale.CurrentPrice, sale.Id);
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            UpdateSales();
+            if (!sortingActive)
+            {
+                UpdateSales();
+            }
         }
 
-        private void createListing_Click(object sender, EventArgs e)
+        private void search_Click(object sender, EventArgs e)
         {
-
+            Sort("name");
         }
 
-        private void myInfo_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Sort("price");
         }
 
-        private void logOut_Click(object sender, EventArgs e)
+        private void productTypeBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Sort("type");
+        }
 
+        private void Sort(string sortBy)
+        {
+            var sales = salesController.GetActive();
+            switch (sortBy)
+            {
+                case "name":
+                    sales = salesController.FindSaleByProductName(textBox1.Text);
+                    break;
+                case "price":
+                    sales = salesController.SortSales(comboBox1.Text);
+                    break;
+                case "type":
+                    sales = salesController.SortSales(productTypeBox.Text);
+                    break;
+                default:
+                    break;
+            }
+            sortingActive = true;
+            salesGrid.Controls.Clear();
+            for (int i = 0; i < sales.Count(); i++)
+            {
+                var sale = sales.ElementAt(i);
+                UpdateGrid(productsController.Get(sale.Products_id).Name, sale.CurrentPrice, sale.Id);
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (backgroundWorker1.IsBusy != true)
+            {
+                // Start the asynchronous operation.
+                backgroundWorker1.RunWorkerAsync();
+            }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            ActiveChecker();
+        }
+
+        private void ActiveChecker()
+        {
+            var sales = salesController.GetActive();
+            for (int i = 0; i < sales.Count(); i++)
+            {
+                if (sales.ElementAt(i).EndTime.CompareTo(DateTime.Now) <= 0)
+                {
+                    salesController.SetInactive(sales.ElementAt(i).Id);
+                }
+            }
         }
     }
 }

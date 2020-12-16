@@ -40,6 +40,11 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.createListing = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.productTypeBox = new System.Windows.Forms.ComboBox();
+            this.typeSortText = new System.Windows.Forms.Label();
+            this.priceSortText = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.salesGrid.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,6 +125,7 @@
             this.search.TabIndex = 3;
             this.search.Text = "Search";
             this.search.UseVisualStyleBackColor = true;
+            this.search.Click += new System.EventHandler(this.search_Click);
             // 
             // textBox1
             // 
@@ -140,6 +146,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(109, 21);
             this.comboBox1.TabIndex = 5;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // createListing
             // 
@@ -150,10 +157,60 @@
             this.createListing.Text = "Create Listing";
             this.createListing.UseVisualStyleBackColor = true;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // productTypeBox
+            // 
+            this.productTypeBox.FormattingEnabled = true;
+            this.productTypeBox.Location = new System.Drawing.Point(667, 55);
+            this.productTypeBox.Name = "productTypeBox";
+            this.productTypeBox.Size = new System.Drawing.Size(110, 21);
+            this.productTypeBox.TabIndex = 27;
+            this.productTypeBox.SelectedIndexChanged += new System.EventHandler(this.productTypeBox_SelectedIndexChanged);
+            // 
+            // typeSortText
+            // 
+            this.typeSortText.BackColor = System.Drawing.Color.Transparent;
+            this.typeSortText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.typeSortText.Location = new System.Drawing.Point(588, 55);
+            this.typeSortText.Name = "typeSortText";
+            this.typeSortText.Size = new System.Drawing.Size(73, 23);
+            this.typeSortText.TabIndex = 28;
+            this.typeSortText.Text = "Sort by Type:";
+            this.typeSortText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // priceSortText
+            // 
+            this.priceSortText.BackColor = System.Drawing.Color.Transparent;
+            this.priceSortText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.priceSortText.Location = new System.Drawing.Point(588, 78);
+            this.priceSortText.Name = "priceSortText";
+            this.priceSortText.Size = new System.Drawing.Size(73, 23);
+            this.priceSortText.TabIndex = 29;
+            this.priceSortText.Text = "Sort by Price:";
+            this.priceSortText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // MainWindow
             // 
             this.BackgroundImage = global::WindowsFormsApp2.Properties.Resources.WindowBackground;
             this.ClientSize = new System.Drawing.Size(788, 479);
+            this.Controls.Add(this.priceSortText);
+            this.Controls.Add(this.typeSortText);
+            this.Controls.Add(this.productTypeBox);
             this.Controls.Add(this.createListing);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox1);
@@ -181,5 +238,10 @@
         private System.Windows.Forms.Button createListing;
         private System.Windows.Forms.Label idText;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ComboBox productTypeBox;
+        private System.Windows.Forms.Label typeSortText;
+        private System.Windows.Forms.Label priceSortText;
+        private System.Windows.Forms.Timer timer2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

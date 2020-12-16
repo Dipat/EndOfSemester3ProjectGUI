@@ -41,9 +41,7 @@
             this.DescriptionText = new System.Windows.Forms.TextBox();
             this.createSaleButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.timeLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // nameText
@@ -91,11 +89,11 @@
             // 
             this.RemainingTime.AutoSize = true;
             this.RemainingTime.BackColor = System.Drawing.Color.Transparent;
-            this.RemainingTime.Location = new System.Drawing.Point(25, 155);
+            this.RemainingTime.Location = new System.Drawing.Point(51, 159);
             this.RemainingTime.Name = "RemainingTime";
-            this.RemainingTime.Size = new System.Drawing.Size(86, 13);
+            this.RemainingTime.Size = new System.Drawing.Size(55, 13);
             this.RemainingTime.TabIndex = 16;
-            this.RemainingTime.Text = "Remaining Time:";
+            this.RemainingTime.Text = "End Time:";
             // 
             // ProductType
             // 
@@ -162,27 +160,14 @@
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = true;
             // 
-            // trackBar1
+            // dateTimePicker1
             // 
-            this.trackBar1.AutoSize = false;
-            this.trackBar1.BackColor = System.Drawing.SystemColors.Control;
-            this.trackBar1.LargeChange = 7;
-            this.trackBar1.Location = new System.Drawing.Point(118, 155);
-            this.trackBar1.Maximum = 6;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(120, 29);
-            this.trackBar1.TabIndex = 32;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
-            // 
-            // timeLabel
-            // 
-            this.timeLabel.AutoSize = true;
-            this.timeLabel.BackColor = System.Drawing.Color.Transparent;
-            this.timeLabel.Location = new System.Drawing.Point(244, 155);
-            this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(40, 13);
-            this.timeLabel.TabIndex = 33;
-            this.timeLabel.Text = "1 Days";
+            this.dateTimePicker1.Location = new System.Drawing.Point(117, 153);
+            this.dateTimePicker1.MinDate = System.DateTime.Now.AddDays(1);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 35;
+            this.dateTimePicker1.Value = this.dateTimePicker1.MinDate;
             // 
             // SalesMenu
             // 
@@ -190,8 +175,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApp2.Properties.Resources.WindowBackground;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.timeLabel);
-            this.Controls.Add(this.trackBar1);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.createSaleButton);
             this.Controls.Add(this.DescriptionText);
@@ -207,7 +191,6 @@
             this.Controls.Add(this.PersonName);
             this.Name = "SalesMenu";
             this.Text = "SalesMenu";
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,7 +210,6 @@
         private System.Windows.Forms.TextBox DescriptionText;
         private System.Windows.Forms.Button createSaleButton;
         private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.Label timeLabel;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

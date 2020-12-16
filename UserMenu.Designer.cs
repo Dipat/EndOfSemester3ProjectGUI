@@ -280,7 +280,6 @@
             this.Controls.Add(this.PersonName);
             this.Name = "UserMenu";
             this.Text = "User Menu";
-            this.Load += new System.EventHandler(this.UserMenu_Load);
             this.ownSalesGrid.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

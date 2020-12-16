@@ -50,6 +50,7 @@
             this.errorText = new System.Windows.Forms.Label();
             this.bidValue = new System.Windows.Forms.NumericUpDown();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.bidValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -140,6 +141,7 @@
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
@@ -147,7 +149,7 @@
             // 
             this.timeText.AutoSize = true;
             this.timeText.BackColor = System.Drawing.Color.Transparent;
-            this.timeText.Location = new System.Drawing.Point(667, 244);
+            this.timeText.Location = new System.Drawing.Point(659, 244);
             this.timeText.Name = "timeText";
             this.timeText.Size = new System.Drawing.Size(26, 13);
             this.timeText.TabIndex = 18;
@@ -208,9 +210,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(575, 244);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 13);
+            this.label4.Size = new System.Drawing.Size(78, 13);
             this.label4.TabIndex = 24;
-            this.label4.Text = "Time Remaining:";
+            this.label4.Text = "Listing Ends in:";
             // 
             // label5
             // 
@@ -252,6 +254,10 @@
             this.pictureBox2.Size = new System.Drawing.Size(183, 158);
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // ProductWindow
             // 
@@ -311,5 +317,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label errorText;
         private System.Windows.Forms.NumericUpDown bidValue;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

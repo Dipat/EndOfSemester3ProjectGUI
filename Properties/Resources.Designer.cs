@@ -63,16 +63,6 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _79c {
-            get {
-                object obj = ResourceManager.GetObject("79c", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap WindowBackground {
             get {
                 object obj = ResourceManager.GetObject("WindowBackground", resourceCulture);

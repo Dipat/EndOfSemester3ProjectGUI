@@ -16,13 +16,17 @@ namespace WindowsFormsApp2
     {
         UsersController usersController = new UsersController();
         EncryptionController encryptionController = new EncryptionController();
+        SalesController salesController = new SalesController();
+        ProductsController productsController = new ProductsController();
         public UserMenu()
         {
             InitializeComponent();
             updateFields(IsLoggedIn.GetInstance().UserName);
+            this.backButton.Click += new EventHandler(Program.backButton_Click);
+            UpdateSales();
         }
 
-        public void UpdateGrid(string productName, int price)
+        public void UpdateGrid(string productName, int price, Color color)
         {
             ownSalesGrid.RowCount = ownSalesGrid.RowCount + 1;
             //Picture box declaration
@@ -43,6 +47,7 @@ namespace WindowsFormsApp2
             itemNameText.TabIndex = 2;
             itemNameText.Text = productName;
             itemNameText.TextAlign = ContentAlignment.MiddleLeft;
+            itemNameText.ForeColor = color;
             itemNameText.Click += new EventHandler(product_Click);
 
             //Price Textbox declaration
@@ -55,6 +60,7 @@ namespace WindowsFormsApp2
             priceText.TabIndex = 3;
             priceText.Text = price + " DKK";
             priceText.TextAlign = ContentAlignment.MiddleRight;
+            priceText.ForeColor = color;
             priceText.Click += new EventHandler(product_Click);
 
             ownSalesGrid.RowStyles.Add(new RowStyle(SizeType.AutoSize));
@@ -66,7 +72,7 @@ namespace WindowsFormsApp2
 
         private void product_Click(object sender, EventArgs e)
         {
-            UpdateGrid("product", 15);
+            //UpdateGrid("product", 15);
         }
 
         private void saveUpdates_Click(object sender, EventArgs e)
@@ -85,9 +91,25 @@ namespace WindowsFormsApp2
             addressText.Text = user.Address;
         }
 
-        private void UserMenu_Load(object sender, EventArgs e)
+        public void UpdateSales()
         {
-
+            var sales = salesController.Get();
+            ownSalesGrid.Controls.Clear();
+            for (int i = 0; i < sales.Count(); i++)
+            {
+                var sale = sales.ElementAt(i);
+                if (sale.Users_id == IsLoggedIn.GetInstance().UserName && sale.HighestBidder_id != null)
+                {
+                    if (!sale.IsActive)
+                    {
+                        UpdateGrid(productsController.Get(sale.Products_id).Name, sale.CurrentPrice, Color.Red);
+                    }
+                    else
+                    {
+                        UpdateGrid(productsController.Get(sale.Products_id).Name, sale.CurrentPrice, Color.Green);
+                    }
+                }
+            }
         }
     }
 }
