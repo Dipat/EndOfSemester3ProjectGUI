@@ -49,14 +49,20 @@
             this.itemNameText = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
             this.saveUpdates = new System.Windows.Forms.Button();
+            this.ownBidsGrid = new System.Windows.Forms.TableLayoutPanel();
+            this.bidPriceText = new System.Windows.Forms.Label();
+            this.bidNameText = new System.Windows.Forms.Label();
+            this.bidIdText = new System.Windows.Forms.Label();
+            this.saleIdText = new System.Windows.Forms.Label();
             this.ownSalesGrid.SuspendLayout();
+            this.ownBidsGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // PersonName
             // 
             this.PersonName.AutoSize = true;
             this.PersonName.BackColor = System.Drawing.Color.Transparent;
-            this.PersonName.Location = new System.Drawing.Point(69, 109);
+            this.PersonName.Location = new System.Drawing.Point(226, 11);
             this.PersonName.Name = "PersonName";
             this.PersonName.Size = new System.Drawing.Size(38, 13);
             this.PersonName.TabIndex = 0;
@@ -66,7 +72,7 @@
             // 
             this.Email.AutoSize = true;
             this.Email.BackColor = System.Drawing.Color.Transparent;
-            this.Email.Location = new System.Drawing.Point(72, 135);
+            this.Email.Location = new System.Drawing.Point(229, 37);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(35, 13);
             this.Email.TabIndex = 1;
@@ -76,7 +82,7 @@
             // 
             this.Address.AutoSize = true;
             this.Address.BackColor = System.Drawing.Color.Transparent;
-            this.Address.Location = new System.Drawing.Point(64, 161);
+            this.Address.Location = new System.Drawing.Point(221, 63);
             this.Address.Name = "Address";
             this.Address.Size = new System.Drawing.Size(48, 13);
             this.Address.TabIndex = 2;
@@ -86,7 +92,7 @@
             // 
             this.Username.AutoSize = true;
             this.Username.BackColor = System.Drawing.Color.Transparent;
-            this.Username.Location = new System.Drawing.Point(54, 36);
+            this.Username.Location = new System.Drawing.Point(42, 16);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(58, 13);
             this.Username.TabIndex = 3;
@@ -96,7 +102,7 @@
             // 
             this.Password.AutoSize = true;
             this.Password.BackColor = System.Drawing.Color.Transparent;
-            this.Password.Location = new System.Drawing.Point(54, 60);
+            this.Password.Location = new System.Drawing.Point(42, 40);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(56, 13);
             this.Password.TabIndex = 4;
@@ -106,7 +112,7 @@
             // 
             this.Password2.AutoSize = true;
             this.Password2.BackColor = System.Drawing.Color.Transparent;
-            this.Password2.Location = new System.Drawing.Point(15, 80);
+            this.Password2.Location = new System.Drawing.Point(3, 63);
             this.Password2.Name = "Password2";
             this.Password2.Size = new System.Drawing.Size(97, 13);
             this.Password2.TabIndex = 5;
@@ -134,7 +140,7 @@
             // 
             // usernameText
             // 
-            this.usernameText.Location = new System.Drawing.Point(118, 33);
+            this.usernameText.Location = new System.Drawing.Point(106, 8);
             this.usernameText.Name = "usernameText";
             this.usernameText.ReadOnly = true;
             this.usernameText.Size = new System.Drawing.Size(100, 20);
@@ -142,7 +148,7 @@
             // 
             // passwordText
             // 
-            this.passwordText.Location = new System.Drawing.Point(118, 57);
+            this.passwordText.Location = new System.Drawing.Point(106, 34);
             this.passwordText.Name = "passwordText";
             this.passwordText.PasswordChar = '*';
             this.passwordText.Size = new System.Drawing.Size(100, 20);
@@ -150,7 +156,7 @@
             // 
             // cPasswordText
             // 
-            this.cPasswordText.Location = new System.Drawing.Point(118, 80);
+            this.cPasswordText.Location = new System.Drawing.Point(106, 60);
             this.cPasswordText.Name = "cPasswordText";
             this.cPasswordText.PasswordChar = '*';
             this.cPasswordText.Size = new System.Drawing.Size(100, 20);
@@ -158,21 +164,21 @@
             // 
             // nameText
             // 
-            this.nameText.Location = new System.Drawing.Point(118, 106);
+            this.nameText.Location = new System.Drawing.Point(275, 8);
             this.nameText.Name = "nameText";
             this.nameText.Size = new System.Drawing.Size(100, 20);
             this.nameText.TabIndex = 11;
             // 
             // emailText
             // 
-            this.emailText.Location = new System.Drawing.Point(118, 132);
+            this.emailText.Location = new System.Drawing.Point(275, 34);
             this.emailText.Name = "emailText";
             this.emailText.Size = new System.Drawing.Size(100, 20);
             this.emailText.TabIndex = 12;
             // 
             // addressText
             // 
-            this.addressText.Location = new System.Drawing.Point(118, 158);
+            this.addressText.Location = new System.Drawing.Point(275, 60);
             this.addressText.Name = "addressText";
             this.addressText.Size = new System.Drawing.Size(100, 20);
             this.addressText.TabIndex = 13;
@@ -199,23 +205,26 @@
             this.ownSalesGrid.AutoScroll = true;
             this.ownSalesGrid.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ownSalesGrid.BackColor = System.Drawing.Color.LightGray;
-            this.ownSalesGrid.ColumnCount = 2;
+            this.ownSalesGrid.ColumnCount = 3;
             this.ownSalesGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.ownSalesGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.ownSalesGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.ownSalesGrid.Controls.Add(this.priceText, 0, 0);
             this.ownSalesGrid.Controls.Add(this.itemNameText, 0, 0);
-            this.ownSalesGrid.Location = new System.Drawing.Point(565, 109);
+            this.ownSalesGrid.Controls.Add(this.saleIdText, 2, 0);
+            this.ownSalesGrid.Location = new System.Drawing.Point(406, 109);
             this.ownSalesGrid.Name = "ownSalesGrid";
-            this.ownSalesGrid.RowCount = 1;
+            this.ownSalesGrid.RowCount = 2;
             this.ownSalesGrid.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.ownSalesGrid.Size = new System.Drawing.Size(223, 302);
+            this.ownSalesGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.ownSalesGrid.Size = new System.Drawing.Size(382, 302);
             this.ownSalesGrid.TabIndex = 16;
             // 
             // priceText
             // 
             this.priceText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.priceText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceText.Location = new System.Drawing.Point(122, 0);
+            this.priceText.Location = new System.Drawing.Point(261, 0);
             this.priceText.Name = "priceText";
             this.priceText.Size = new System.Drawing.Size(98, 62);
             this.priceText.TabIndex = 3;
@@ -245,7 +254,7 @@
             // 
             // saveUpdates
             // 
-            this.saveUpdates.Location = new System.Drawing.Point(106, 184);
+            this.saveUpdates.Location = new System.Drawing.Point(381, 33);
             this.saveUpdates.Name = "saveUpdates";
             this.saveUpdates.Size = new System.Drawing.Size(121, 23);
             this.saveUpdates.TabIndex = 33;
@@ -253,12 +262,74 @@
             this.saveUpdates.UseVisualStyleBackColor = true;
             this.saveUpdates.Click += new System.EventHandler(this.saveUpdates_Click);
             // 
+            // ownBidsGrid
+            // 
+            this.ownBidsGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ownBidsGrid.AutoScroll = true;
+            this.ownBidsGrid.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ownBidsGrid.BackColor = System.Drawing.Color.LightGray;
+            this.ownBidsGrid.ColumnCount = 3;
+            this.ownBidsGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ownBidsGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.ownBidsGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.ownBidsGrid.Controls.Add(this.bidPriceText, 0, 0);
+            this.ownBidsGrid.Controls.Add(this.bidNameText, 0, 0);
+            this.ownBidsGrid.Controls.Add(this.bidIdText, 2, 0);
+            this.ownBidsGrid.Location = new System.Drawing.Point(12, 109);
+            this.ownBidsGrid.Name = "ownBidsGrid";
+            this.ownBidsGrid.RowCount = 1;
+            this.ownBidsGrid.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.ownBidsGrid.Size = new System.Drawing.Size(388, 302);
+            this.ownBidsGrid.TabIndex = 17;
+            // 
+            // bidPriceText
+            // 
+            this.bidPriceText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bidPriceText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bidPriceText.Location = new System.Drawing.Point(267, 0);
+            this.bidPriceText.Name = "bidPriceText";
+            this.bidPriceText.Size = new System.Drawing.Size(98, 62);
+            this.bidPriceText.TabIndex = 3;
+            this.bidPriceText.Text = "100.000.000$";
+            this.bidPriceText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // bidNameText
+            // 
+            this.bidNameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bidNameText.Location = new System.Drawing.Point(3, 0);
+            this.bidNameText.Name = "bidNameText";
+            this.bidNameText.Size = new System.Drawing.Size(104, 62);
+            this.bidNameText.TabIndex = 2;
+            this.bidNameText.Text = "label2";
+            this.bidNameText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bidIdText
+            // 
+            this.bidIdText.AutoSize = true;
+            this.bidIdText.Location = new System.Drawing.Point(371, 0);
+            this.bidIdText.Name = "bidIdText";
+            this.bidIdText.Size = new System.Drawing.Size(13, 13);
+            this.bidIdText.TabIndex = 4;
+            this.bidIdText.Text = "1";
+            this.bidIdText.Visible = false;
+            // 
+            // saleIdText
+            // 
+            this.saleIdText.AutoSize = true;
+            this.saleIdText.Location = new System.Drawing.Point(365, 0);
+            this.saleIdText.Name = "saleIdText";
+            this.saleIdText.Size = new System.Drawing.Size(13, 13);
+            this.saleIdText.TabIndex = 5;
+            this.saleIdText.Text = "1";
+            this.saleIdText.Visible = false;
+            // 
             // UserMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApp2.Properties.Resources.WindowBackground;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ownBidsGrid);
             this.Controls.Add(this.saveUpdates);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.ownSalesGrid);
@@ -281,6 +352,9 @@
             this.Name = "UserMenu";
             this.Text = "User Menu";
             this.ownSalesGrid.ResumeLayout(false);
+            this.ownSalesGrid.PerformLayout();
+            this.ownBidsGrid.ResumeLayout(false);
+            this.ownBidsGrid.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,5 +383,10 @@
         private System.Windows.Forms.Label priceText;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Button saveUpdates;
+        private System.Windows.Forms.TableLayoutPanel ownBidsGrid;
+        private System.Windows.Forms.Label bidPriceText;
+        private System.Windows.Forms.Label bidNameText;
+        private System.Windows.Forms.Label bidIdText;
+        private System.Windows.Forms.Label saleIdText;
     }
 }

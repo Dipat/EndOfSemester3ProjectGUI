@@ -51,6 +51,10 @@
             this.bidValue = new System.Windows.Forms.NumericUpDown();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.sellerEmailText = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.buyerEmailText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bidValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -114,7 +118,7 @@
             // 
             this.cPriceText.AutoSize = true;
             this.cPriceText.BackColor = System.Drawing.Color.Transparent;
-            this.cPriceText.Location = new System.Drawing.Point(321, 181);
+            this.cPriceText.Location = new System.Drawing.Point(321, 130);
             this.cPriceText.Name = "cPriceText";
             this.cPriceText.Size = new System.Drawing.Size(68, 13);
             this.cPriceText.TabIndex = 15;
@@ -124,7 +128,7 @@
             // 
             this.pTypeText.AutoSize = true;
             this.pTypeText.BackColor = System.Drawing.Color.Transparent;
-            this.pTypeText.Location = new System.Drawing.Point(321, 130);
+            this.pTypeText.Location = new System.Drawing.Point(321, 106);
             this.pTypeText.Name = "pTypeText";
             this.pTypeText.Size = new System.Drawing.Size(31, 13);
             this.pTypeText.TabIndex = 16;
@@ -188,7 +192,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(284, 130);
+            this.label2.Location = new System.Drawing.Point(287, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 22;
@@ -198,7 +202,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(250, 181);
+            this.label3.Location = new System.Drawing.Point(250, 130);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 23;
@@ -259,12 +263,58 @@
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Location = new System.Drawing.Point(250, 157);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 13);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Seller\'s Email:";
+            // 
+            // sellerEmailText
+            // 
+            this.sellerEmailText.AutoSize = true;
+            this.sellerEmailText.BackColor = System.Drawing.Color.Transparent;
+            this.sellerEmailText.Location = new System.Drawing.Point(321, 157);
+            this.sellerEmailText.Name = "sellerEmailText";
+            this.sellerEmailText.Size = new System.Drawing.Size(68, 13);
+            this.sellerEmailText.TabIndex = 30;
+            this.sellerEmailText.Text = "Seller\'s Email";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(250, 180);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 13);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Buyer\'s Email:";
+            this.label7.Visible = false;
+            // 
+            // buyerEmailText
+            // 
+            this.buyerEmailText.AutoSize = true;
+            this.buyerEmailText.BackColor = System.Drawing.Color.Transparent;
+            this.buyerEmailText.Location = new System.Drawing.Point(321, 180);
+            this.buyerEmailText.Name = "buyerEmailText";
+            this.buyerEmailText.Size = new System.Drawing.Size(69, 13);
+            this.buyerEmailText.TabIndex = 32;
+            this.buyerEmailText.Text = "Buyer\'s Email";
+            this.buyerEmailText.Visible = false;
+            // 
             // ProductWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApp2.Properties.Resources.WindowBackground;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buyerEmailText);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.sellerEmailText);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.bidValue);
             this.Controls.Add(this.errorText);
             this.Controls.Add(this.label5);
@@ -318,5 +368,9 @@
         private System.Windows.Forms.Label errorText;
         private System.Windows.Forms.NumericUpDown bidValue;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label sellerEmailText;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label buyerEmailText;
     }
 }

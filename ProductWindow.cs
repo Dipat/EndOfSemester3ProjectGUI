@@ -15,6 +15,7 @@ namespace WindowsFormsApp2
     {
         private int saleID = 0;
         private bool errorTextVisible = false;
+        UsersController usersController = new UsersController();
         SalesController salesController = new SalesController();
         ProductsController productsController = new ProductsController();
         ProductTypesController productTypesController = new ProductTypesController();
@@ -45,6 +46,7 @@ namespace WindowsFormsApp2
             var product = productsController.Get(sale.Products_id);
             nameText.Text = product.Name;
             pTypeText.Text = productTypesController.Get(product.ProductTypes_id).Type;
+            sellerEmailText.Text = usersController.Get(sale.Users_id).Email;
             descriptionText.Text = sale.Description;
             timeText.Text = sale.EndTime.ToString();
             UpdatePrice();
@@ -55,6 +57,12 @@ namespace WindowsFormsApp2
             var sale = salesController.Get(saleID);
             cPriceText.Text = sale.CurrentPrice.ToString();
             bidValue.Minimum = sale.CurrentPrice / 10;
+            if (sale.Users_id == EndOfSemester3.Models.IsLoggedIn.GetInstance().UserName)
+            {
+                label7.Visible = true;
+                buyerEmailText.Visible = true;
+                buyerEmailText.Text = usersController.Get(sale.HighestBidder_id).Email;
+            }
             if (bidValue.Minimum < 1)
             {
                 bidValue.Minimum = 1;

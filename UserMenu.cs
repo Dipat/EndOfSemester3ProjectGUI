@@ -18,15 +18,17 @@ namespace WindowsFormsApp2
         EncryptionController encryptionController = new EncryptionController();
         SalesController salesController = new SalesController();
         ProductsController productsController = new ProductsController();
+        int numberOfSalesDone = 0;
         public UserMenu()
         {
             InitializeComponent();
             updateFields(IsLoggedIn.GetInstance().UserName);
             this.backButton.Click += new EventHandler(Program.backButton_Click);
             UpdateSales();
+            nSalesText.Text = numberOfSalesDone.ToString();
         }
 
-        public void UpdateGrid(string productName, int price, Color color)
+        public void UpdateOwnSaleGrid(string productName, int price, Color color, int saleID)
         {
             ownSalesGrid.RowCount = ownSalesGrid.RowCount + 1;
             //Picture box declaration
@@ -63,16 +65,86 @@ namespace WindowsFormsApp2
             priceText.ForeColor = color;
             priceText.Click += new EventHandler(product_Click);
 
+            //ID Invisible Textbox declaration
+            Label saleIdText = new Label();
+            saleIdText.AutoSize = true;
+            saleIdText.Location = new Point(747, 0);
+            saleIdText.Name = "saleIdText";
+            saleIdText.Size = new Size(13, 26);
+            saleIdText.TabIndex = 3;
+            saleIdText.Text = saleID.ToString();
+            saleIdText.Visible = false;
+
             ownSalesGrid.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             //ownSalesGrid.Controls.Add(pictureBox, 0, ownSalesGrid.RowCount-1);
             ownSalesGrid.Controls.Add(itemNameText, 0, ownSalesGrid.RowCount - 1);
             ownSalesGrid.Controls.Add(priceText, 1, ownSalesGrid.RowCount - 1);
+            ownSalesGrid.Controls.Add(saleIdText, 2, ownSalesGrid.RowCount - 1);
+        }
+
+        public void UpdateOwnBidsGrid(string productName, int price, int saleID)
+        {
+            ownBidsGrid.RowCount = ownBidsGrid.RowCount + 1;
+
+            //Product Name Textbox declaration
+            Label bidNameText = new Label();
+            bidNameText.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            bidNameText.Location = new Point(3, 0);
+            bidNameText.Name = "bidNameText";
+            bidNameText.Size = new Size(104, 62);
+            bidNameText.TabIndex = 2;
+            bidNameText.Text = productName;
+            bidNameText.TextAlign = ContentAlignment.MiddleLeft;
+            bidNameText.Click += new EventHandler(product_Click);
+
+            //Price Textbox declaration
+            Label bidPriceText = new Label();
+            bidPriceText.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+            bidPriceText.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            bidPriceText.Location = new Point(122, 0);
+            bidPriceText.Name = "bidPriceText";
+            bidPriceText.Size = new Size(98, 62);
+            bidPriceText.TabIndex = 3;
+            bidPriceText.Text = price + " DKK";
+            bidPriceText.TextAlign = ContentAlignment.MiddleRight;
+            bidPriceText.Click += new EventHandler(product_Click);
+
+            //ID Invisible Textbox declaration
+            Label bidIdText = new Label();
+            bidIdText.AutoSize = true;
+            bidIdText.Location = new Point(747, 0);
+            bidIdText.Name = "bidIdText";
+            bidIdText.Size = new Size(13, 26);
+            bidIdText.TabIndex = 3;
+            bidIdText.Text = saleID.ToString();
+            bidIdText.Visible = false;
+
+            ownBidsGrid.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            ownBidsGrid.Controls.Add(bidNameText, 0, ownBidsGrid.RowCount - 1);
+            ownBidsGrid.Controls.Add(bidPriceText, 1, ownBidsGrid.RowCount - 1);
+            ownBidsGrid.Controls.Add(bidIdText, 2, ownBidsGrid.RowCount - 1);
 
         }
 
         private void product_Click(object sender, EventArgs e)
         {
-            //UpdateGrid("product", 15);
+            ProductWindow window = new ProductWindow();
+            int row = ownBidsGrid.GetRow((Control)sender);
+            int id = int.Parse(GetAnyControlAt(ownBidsGrid, 2, row).Text);
+            window.UpdateText(id);
+            window.Show();
+            Close();
+        }
+
+        public Control GetAnyControlAt(TableLayoutPanel panel, int column, int row)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                var cellPosition = panel.GetCellPosition(control);
+                if (cellPosition.Column == column && cellPosition.Row == row)
+                    return control;
+            }
+            return null;
         }
 
         private void saveUpdates_Click(object sender, EventArgs e)
@@ -95,6 +167,8 @@ namespace WindowsFormsApp2
         {
             var sales = salesController.Get();
             ownSalesGrid.Controls.Clear();
+            ownBidsGrid.Controls.Clear();
+            numberOfSalesDone = 0;
             for (int i = 0; i < sales.Count(); i++)
             {
                 var sale = sales.ElementAt(i);
@@ -102,12 +176,17 @@ namespace WindowsFormsApp2
                 {
                     if (!sale.IsActive)
                     {
-                        UpdateGrid(productsController.Get(sale.Products_id).Name, sale.CurrentPrice, Color.Red);
+                        UpdateOwnSaleGrid(productsController.Get(sale.Products_id).Name, sale.CurrentPrice, Color.Red, sale.Id);
+                        numberOfSalesDone++;
                     }
                     else
                     {
-                        UpdateGrid(productsController.Get(sale.Products_id).Name, sale.CurrentPrice, Color.Green);
+                        UpdateOwnSaleGrid(productsController.Get(sale.Products_id).Name, sale.CurrentPrice, Color.Green, sale.Id);
                     }
+                }
+                if (sale.HighestBidder_id == IsLoggedIn.GetInstance().UserName)
+                {
+                    UpdateOwnBidsGrid(productsController.Get(sale.Products_id).Name, sale.CurrentPrice, sale.Id);
                 }
             }
         }
