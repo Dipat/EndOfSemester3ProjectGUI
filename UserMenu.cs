@@ -200,6 +200,7 @@ namespace WindowsFormsApp2
                     UpdateOwnBidsGrid(productsController.Get(sale.Products_id).Name, sale.CurrentPrice, sale.Id);
                 }
             }
+            usersController.UpdateNumberOfSales(IsLoggedIn.GetInstance().UserName, numberOfSalesDone);
         }
     }
 }
