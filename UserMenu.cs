@@ -149,7 +149,18 @@ namespace WindowsFormsApp2
 
         private void saveUpdates_Click(object sender, EventArgs e)
         {
-            usersController.Update(usernameText.Text, passwordText.Text, nameText.Text, emailText.Text, addressText.Text);
+            errorText.Visible = false;
+            if (passwordText.Text == cPasswordText.Text)
+            {
+                if (!usersController.Update(usernameText.Text, passwordText.Text, nameText.Text, emailText.Text, addressText.Text))
+                {
+                    errorText.Visible = true;
+                }
+            }
+            else
+            {
+                errorText.Visible = true;
+            }
         }
 
         public void updateFields(string username)

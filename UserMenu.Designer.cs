@@ -47,13 +47,14 @@
             this.ownSalesGrid = new System.Windows.Forms.TableLayoutPanel();
             this.priceText = new System.Windows.Forms.Label();
             this.itemNameText = new System.Windows.Forms.Label();
+            this.saleIdText = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
             this.saveUpdates = new System.Windows.Forms.Button();
             this.ownBidsGrid = new System.Windows.Forms.TableLayoutPanel();
             this.bidPriceText = new System.Windows.Forms.Label();
             this.bidNameText = new System.Windows.Forms.Label();
             this.bidIdText = new System.Windows.Forms.Label();
-            this.saleIdText = new System.Windows.Forms.Label();
+            this.errorText = new System.Windows.Forms.Label();
             this.ownSalesGrid.SuspendLayout();
             this.ownBidsGrid.SuspendLayout();
             this.SuspendLayout();
@@ -243,6 +244,16 @@
             this.itemNameText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.itemNameText.Click += new System.EventHandler(this.product_Click);
             // 
+            // saleIdText
+            // 
+            this.saleIdText.AutoSize = true;
+            this.saleIdText.Location = new System.Drawing.Point(365, 0);
+            this.saleIdText.Name = "saleIdText";
+            this.saleIdText.Size = new System.Drawing.Size(13, 13);
+            this.saleIdText.TabIndex = 5;
+            this.saleIdText.Text = "1";
+            this.saleIdText.Visible = false;
+            // 
             // backButton
             // 
             this.backButton.Location = new System.Drawing.Point(667, 417);
@@ -313,15 +324,15 @@
             this.bidIdText.Text = "1";
             this.bidIdText.Visible = false;
             // 
-            // saleIdText
+            // errorText
             // 
-            this.saleIdText.AutoSize = true;
-            this.saleIdText.Location = new System.Drawing.Point(365, 0);
-            this.saleIdText.Name = "saleIdText";
-            this.saleIdText.Size = new System.Drawing.Size(13, 13);
-            this.saleIdText.TabIndex = 5;
-            this.saleIdText.Text = "1";
-            this.saleIdText.Visible = false;
+            this.errorText.AutoSize = true;
+            this.errorText.Location = new System.Drawing.Point(383, 67);
+            this.errorText.Name = "errorText";
+            this.errorText.Size = new System.Drawing.Size(89, 13);
+            this.errorText.TabIndex = 34;
+            this.errorText.Text = "An error occured!";
+            this.errorText.Visible = false;
             // 
             // UserMenu
             // 
@@ -329,6 +340,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApp2.Properties.Resources.WindowBackground;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.errorText);
             this.Controls.Add(this.ownBidsGrid);
             this.Controls.Add(this.saveUpdates);
             this.Controls.Add(this.backButton);
@@ -388,5 +400,6 @@
         private System.Windows.Forms.Label bidNameText;
         private System.Windows.Forms.Label bidIdText;
         private System.Windows.Forms.Label saleIdText;
+        private System.Windows.Forms.Label errorText;
     }
 }
